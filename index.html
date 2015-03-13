@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <title>PI Day</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+  <body ng-controller="mainCtrl">
+    <div id="d">
+      <h1>Pin drop probablity test</h1>
+      <canvas width="1000" height="600" id="canvas" drawing></canvas>
+      <p>
+        Total Pins: {{totalPins}}
+      </p>
+      <p>
+        Intersecting Pins: {{intersectingPins}}
+      </p>
+      <p>
+        Percentage: {{percentage}}
+      </p>
+      <p>
+        The idea is that the probability of you dropping a pin on a series of vertical lines and having it interect is PI.  The length of the pin is 1/3 the distance between the vertical lines.
+        So click away at the canvs and see what the probability is!
+      </p>
+      <p>
+        The idea can be applied to several real world problems such as traffic, purchases, and telecommunications.
+      </p>
+    </div>
+
+      <script src="scripts/jquery-1.11.1.min.js"></script>
+      <script src="scripts/angular.js"></script>
+
+      <script src="app/app.js"></script>
+
+  </body>
+</html>
