@@ -29,7 +29,7 @@ app.directive("drawing", function(){
 
       });
 
-element.bind('touchstart touchmove', function(event){
+element.bind('touchstart touchmove', function(e){
 
   //Disable scrolling by preventing default touch behaviour
   e.preventDefault();
