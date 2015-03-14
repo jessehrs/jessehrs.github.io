@@ -29,6 +29,26 @@ app.directive("drawing", function(){
 
       });
 
+element.bind('touchmove', function(event){
+  var centerX = event.offsetX;
+          var centerY = event.offsetY;
+  ctx.beginPath();
+
+          var angle = Math.random(0, 1);
+          var endX = Math.cos(angle * 2 * Math.PI) * (d * .66) + centerX;
+          var endY = Math.sin(angle * 2 * Math.PI) * (d * .66) + centerY;
+
+          drawLine(centerX, centerY, endX, endY);
+          scope.$apply(function() { scope.totalPins++});
+
+for (i = 0; i < 21; i++) {
+            if(lineIntersect(i * d, 0, i * d, 600, centerX, centerY, endX, endY)){
+              scope.$apply(function() { scope.intersectingPins++});
+            }
+          }
+          scope.$apply(function() { scope.percentage = scope.totalPins / scope.intersectingPins; });
+});
+
       element.bind('mousemove', function(event){
         if(drawing){
           var centerX = event.offsetX;
