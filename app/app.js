@@ -29,9 +29,14 @@ app.directive("drawing", function(){
 
       });
 
-element.bind('touchmove', function(event){
-  var centerX = event.offsetX;
-          var centerY = event.offsetY;
+element.bind('touchstart touchmove', function(event){
+
+  //Disable scrolling by preventing default touch behaviour
+  e.preventDefault();
+  var orig = e.originalEvent;
+  var centerX = orig.changedTouches[0].pageX;
+  var centerY = orig.changedTouches[0].pageY
+
   ctx.beginPath();
 
           var angle = Math.random(0, 1);
